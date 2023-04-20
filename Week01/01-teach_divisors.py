@@ -14,6 +14,14 @@ def find_divisors_1(number):
     and excluding the number itself.  Modulo will be used
     to test divisibility.
     """
+    divisors = []
+
+    for x in range(1, number):
+        if number % x == 0:
+            divisors.append(x)
+    return divisors
+    
+
     pass
 
 def find_divisors_2(number):
@@ -23,6 +31,6 @@ def find_divisors_2(number):
     pass
 
 print(find_divisors_1(80)) # [1, 2, 4, 5, 8, 10, 16, 20, 40]
-print(find_divisors_2(80)) # [1, 2, 4, 5, 8, 10, 16, 20, 40]
+#print(find_divisors_2(80)) # [1, 2, 4, 5, 8, 10, 16, 20, 40]
 print(find_divisors_1(79)) # [1] ... This is prime
-print(find_divisors_2(79)) # [1]
+#print(find_divisors_2(79)) # [1]
