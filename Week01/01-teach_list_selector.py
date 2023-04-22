@@ -20,6 +20,19 @@ def list_selector(list1, list2, selector):
     that the sizes of list1 and list2 agree with the selector 
     list.
     """
+    position1 = 0
+    position2 = 0
+    newList = []
+    
+    for x in selector:
+        if x == 1:
+            newList.append(list1[position1])
+            position1 += 1
+        elif x == 2:
+            newList.append(list2[position2])
+            position2 += 1
+    return newList
+        
     pass
 
 l1 = [1, 2, 3, 4, 5]
