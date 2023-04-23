@@ -17,6 +17,7 @@ def multiples_of(number, length):
     integer greater than 0.  The implementation must be
     done using a list comprehension.
     """
+    #x is the integer that will be multiplied by the number up to the length. starting at 1 and ending at the length + 1
     multiples = [x * number for x in range(1, length + 1)]
     return multiples
     pass
