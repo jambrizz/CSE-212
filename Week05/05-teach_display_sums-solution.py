@@ -1,7 +1,7 @@
 """
 CSE212 
 (c) BYU-Idaho
-05-Teach - Problem 2
+05-Teach - Problem 2 - Solution
 
 It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
 to post it online.  Storage into a personal and private repository (e.g. private
@@ -10,18 +10,18 @@ GitHub repository, unshared Google Drive folder) is acceptable.
 
 def display_sums(numbers):
     """
-    Display pairs of numbers (no duplicates should be displayed) that sum to 
-    10 using a set in O(n) time.  We are assuming that there are no duplicates 
-    in the list.
+    Display pairs of numbers that sum to 10 using a set in O(n) time
+    We are assuming that there are no duplicates in the list
     """
-    newSet = set()
-    
-    for i in numbers:
-        if 10-i in newSet:
-            print(i, 10-i)
-        newSet.add(i)
-    
-    pass
+    values_seen = set()
+    for n in numbers:
+        # If 10-n is in the values_seen set then I know that
+        # I have previously seen a number that will sum with n 
+        # to equal 10.  Display that pair
+        if 10-n in values_seen:
+            print(n, 10-n)
+        # Add this number to the values_seen set 
+        values_seen.add(n)
 
 display_sums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])  
 """
