@@ -15,9 +15,11 @@ def intersection(set1, set2):
     operators (+, -, *, &, |) and functions (intersection, union) 
     that are built-in to Python.
     """
+    intersectionSet = set()
     for i in set1:
         if i in set2:
-            print(i)
+            intersectionSet.add(i)
+    return intersectionSet
     pass
 
 def union(set1, set2):
