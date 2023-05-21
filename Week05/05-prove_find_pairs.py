@@ -25,7 +25,24 @@ def find_pairs(words):
     As a special case, if the letters are the same (example: 'aa') then
     it would not match anything else (remember no the assumption above
     that there were no duplicates) and therefore should not be displayed.
-    """    
+    """ 
+    rawSet = set()   
+    firstSet = set()
+    secondSet = set()
+    finalSet = set()
+    
+    for i in words:
+        rawSet.add(i)
+    for j in rawSet:
+        if j not in firstSet and j[::-1] in rawSet and j != j[::-1]:
+            firstSet.add(j)
+    for k in firstSet:
+        if k[::-1] not in secondSet:
+            secondSet.add(k)
+    for l in secondSet:
+        finalSet.add(l + " & " + l[::-1])
+    print(finalSet)
+        
     pass
 
 find_pairs(["am","at","ma","if","fi"])      # ma & am, fi & if
