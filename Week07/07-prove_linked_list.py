@@ -67,15 +67,15 @@ class LinkedList:
         linked list.
         """
         
-        new_node = LinkedList.Node(value)
+        new_node = LinkedList.Node(value) # Create the new node
         
-        if self.tail is None:
+        if self.tail is None: # If the list is empty, then point both head and tail to the new node
             self.head = new_node
             self.tail = new_node
         else:
-            new_node.prev = self.tail
-            self.tail.next = new_node
-            self.tail = new_node
+            new_node.prev = self.tail # Connect new node to the previous tail
+            self.tail.next = new_node # Connect the previous tail to the new node
+            self.tail = new_node     # Update the tail to point to the new node
         
 
     #################
@@ -105,12 +105,12 @@ class LinkedList:
         """
         Remove the last node (i.e. the tail) of the linked list.
         """
-        if self.head == self.tail:
+        if self.head == self.tail: # If the list has only one item in it, then set head and tail to None resulting in an empty list.
             self.head = None
             self.tail = None
         else:
-            self.tail.prev.next = None
-            self.tail = self.tail.prev
+            self.tail.prev.next = None # Disconnect the second to last node from the last node
+            self.tail = self.tail.prev # Update the tail to point to the second to last node
 
     #################
     # End Problem 2 #
@@ -149,24 +149,24 @@ class LinkedList:
         Remove the first node that contains 'value'.
         """
         
-        currentValue = self.head
-        removeValueOnce = False
+        currentValue = self.head # Start at the head of the list
+        removeValueOnce = False # Flag to ensure that we only remove the first instance of the value
         
-        while currentValue is not None:
-            if currentValue.data == value:
+        while currentValue is not None: # Loop until we reach the end of the list
+            if currentValue.data == value: # If we find a match, then remove the value
                 
-                if not removeValueOnce:
-                    if currentValue == self.head:
-                        self.remove_head()
+                if not removeValueOnce: # Only remove the first instance of the value
+                    if currentValue == self.head: # If the value is at the head of the list, then remove the head
+                        self.remove_head() 
                         removeValueOnce = True
-                    elif currentValue == self.tail:
+                    elif currentValue == self.tail: # If the value is at the tail of the list, then remove the tail
                         self.remove_tail()
                         removeValueOnce = True
-                    else:
+                    else: # If the value is in the middle of the list, then remove the value
                         currentValue.prev.next = currentValue.next
                         currentValue.next.prev = currentValue.prev
                         removeValueOnce = True
-            currentValue = currentValue.next
+            currentValue = currentValue.next # Go to the next node in the list
                 
     #################
     # End Problem 3 #
@@ -180,7 +180,14 @@ class LinkedList:
         Searrch for all instances of 'old_value' and replace the value 
         to 'new_value'.
         """
-        pass
+        
+        currentValue = self.head # Start at the head of the list
+        
+        while currentValue is not None: # Loop until we reach the end of the list
+            if currentValue.data == old_value: # If we find a match, then replace the value
+                currentValue.data = new_value   # Replace the value
+            currentValue = currentValue.next    # Go to the next node in the list
+        
 
     #################
     # End Problem 4 #
@@ -202,7 +209,12 @@ class LinkedList:
         """
         Iterate backward through the Linked List
         """
-        yield "???"  # Replace this when you implement your solution
+        startReverse = self.tail # Start at the end of the list
+        
+        while startReverse is not None: # Loop until we reach the beginning of the list
+            yield startReverse.data    # Provide (yield) each item to the user
+            startReverse = startReverse.prev # Go backward in the linked list
+            
 
     #################
     # End Problem 5 #
