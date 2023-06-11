@@ -335,7 +335,7 @@ def solve_maze(maze, x=0, y=0, curr_path=None):
         print(curr_path)
     
     """    
-    I had to look back at the chart on the assignment to figure out how to do this. I originally start with moving right, and then down and then left and then up which flipped the maze results backwards and it did not match the expected results
+    I had to look back at the chart on the assignment to figure out how to do this. I originally start with moving right, and then down and then left and then up which flipped the maze results backwards and it did not match the expected results. I then realized that I needed to start with moving down, then right, then up, then left. This gave me the expected results.
     """
         
     # Check if we can move down
